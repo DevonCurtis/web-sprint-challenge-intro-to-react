@@ -25,12 +25,29 @@ const App = () => {
       })
   }, [])
 
-  
+
   return (
-    <div className="App">
-      <h1 className="Header">Characters</h1>
-    </div>
+    <AppDiv>
+      <H1>Characters</H1>
+      {
+        characters.map(char => {
+          return <Character key={char.name} info={char}/>
+        })
+      }
+    </AppDiv>
   );
 }
 
+const AppDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+
+const H1 = styled.h1`
+  color: #443e3e;
+  text-shadow: 1px 1px 5px #fff;
+`;
 export default App;
